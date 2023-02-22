@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=3 uid="uid://b0nwvj7dfijnl"]
+
+[ext_resource type="Script" path="res://scenes/time_controls.gd" id="1_trm3m"]
+[ext_resource type="PackedScene" uid="uid://dcmg0alceusrp" path="res://scenes/time_scale_button.tscn" id="2_4e26r"]
+[ext_resource type="Script" path="res://scenes/time_scale_button.gd" id="3_1f2g8"]
+[ext_resource type="Script" path="res://scenes/time_left_button.gd" id="3_fvtl0"]
+[ext_resource type="Script" path="res://scenes/btn_end.gd" id="4_xx7jc"]
+
+[node name="TimeControls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_trm3m")
+metadata/_edit_horizontal_guides_ = [-56.0]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -2
+layout_mode = 0
+offset_left = -6035.0
+offset_top = -2943.0
+offset_right = 9880.0
+offset_bottom = 6857.0
+color = Color(0.0627451, 0.172549, 0.160784, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -156.0
+offset_right = -47.0
+offset_bottom = -76.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/CenterContainer"]
+layout_mode = 2
+columns = 4
+
+[node name="Button" parent="MarginContainer/CenterContainer/GridContainer" instance=ExtResource("2_4e26r")]
+layout_mode = 2
+time_scale = 0.5
+
+[node name="Button2" parent="MarginContainer/CenterContainer/GridContainer" instance=ExtResource("2_4e26r")]
+layout_mode = 2
+text = "1x"
+
+[node name="Button3" parent="MarginContainer/CenterContainer/GridContainer" instance=ExtResource("2_4e26r")]
+layout_mode = 2
+text = "10x"
+time_scale = 10.0
+
+[node name="Button4" parent="MarginContainer/CenterContainer/GridContainer" instance=ExtResource("2_4e26r")]
+layout_mode = 2
+text = "40x"
+time_scale = 40.0
+
+[node name="btn_pause" type="Button" parent="MarginContainer/CenterContainer/GridContainer"]
+layout_mode = 2
+text = "Pause"
+script = ExtResource("3_1f2g8")
+time_scale = 0.0
+
+[node name="btn_end" type="Button" parent="MarginContainer/CenterContainer/GridContainer"]
+layout_mode = 2
+text = "End Test
+"
+script = ExtResource("4_xx7jc")
+
+[node name="time_left" type="Button" parent="MarginContainer/CenterContainer/GridContainer"]
+layout_mode = 2
+text = "TimeLeft"
+script = ExtResource("3_fvtl0")
+
+[connection signal="pressed" from="MarginContainer/CenterContainer/GridContainer/btn_end" to="MarginContainer/CenterContainer/GridContainer/btn_end" method="_on_pressed"]

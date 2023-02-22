@@ -1,0 +1,55 @@
+[gd_scene load_steps=9 format=3 uid="uid://6pf8p44hsw5"]
+
+[ext_resource type="Script" path="res://scenes/food.gd" id="1_4vw6k"]
+[ext_resource type="Texture2D" uid="uid://clbd5g3b756b6" path="res://art/robot.png" id="1_e08uo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bxc7q"]
+size = Vector2(4, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxqtp"]
+atlas = ExtResource("1_e08uo")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1rvc"]
+atlas = ExtResource("1_e08uo")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h8fye"]
+atlas = ExtResource("1_e08uo")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqsfs"]
+atlas = ExtResource("1_e08uo")
+region = Rect2(64, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dh87d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxqtp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1rvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h8fye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqsfs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Food" type="Area2D"]
+collision_mask = 3
+script = ExtResource("1_4vw6k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bxc7q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dh87d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

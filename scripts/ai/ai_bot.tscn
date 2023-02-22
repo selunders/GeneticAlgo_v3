@@ -1,0 +1,60 @@
+[gd_scene load_steps=7 format=3 uid="uid://cyody44bql02p"]
+
+[ext_resource type="PackedScene" uid="uid://d0m074wcx1x3w" path="res://scripts/player_input/player.tscn" id="1_xjwj8"]
+[ext_resource type="Script" path="res://scripts/ai/ai_bot.gd" id="2_37uyt"]
+[ext_resource type="PackedScene" uid="uid://jde7r41cubi3" path="res://scenes/hitbox.tscn" id="3_mg637"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r4d75"]
+size = Vector2(14, 3)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jeyyh"]
+size = Vector2(1, 1)
+
+[sub_resource type="GDScript" id="GDScript_liowe"]
+
+[node name="ai_bot" instance=ExtResource("1_xjwj8")]
+collision_layer = 2
+collision_mask = 3
+continuous_cd = 1
+sleeping = true
+script = ExtResource("2_37uyt")
+
+[node name="hitbox" parent="." index="1" instance=ExtResource("3_mg637")]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox" index="0"]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_r4d75")
+debug_color = Color(0.988235, 0.113725, 0, 0.419608)
+
+[node name="attack_timer" type="Timer" parent="hitbox" index="2"]
+wait_time = 0.5
+autostart = true
+
+[node name="Eyes" type="Area2D" parent="." index="2"]
+position = Vector2(0, -4)
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Eyes" index="0"]
+shape = SubResource("RectangleShape2D_jeyyh")
+
+[node name="AnimatedSprite2D" parent="." index="4"]
+frame_progress = 0.958396
+
+[node name="ai_controller" type="Node" parent="." index="5"]
+script = SubResource("GDScript_liowe")
+
+[node name="SearchState" type="Node" parent="." index="6"]
+
+[node name="State_Timer" type="Timer" parent="SearchState" index="0"]
+one_shot = true
+
+[node name="RegenTimer" type="Timer" parent="." index="7"]
+wait_time = 0.5
+
+[connection signal="timeout" from="hitbox/attack_timer" to="." method="_on_attack_timer_timeout"]
+[connection signal="area_entered" from="Eyes" to="." method="_on_eyes_area_entered"]
+[connection signal="area_exited" from="Eyes" to="." method="_on_eyes_area_exited"]
+[connection signal="body_entered" from="Eyes" to="." method="_on_eyes_body_entered"]

@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dldps2poawk5f"
+
+[deps]
+
+files=["res://output_data/results_2_10_11_44_33.FITNESS.translation", "res://output_data/results_2_10_11_44_33.SAFE.translation", "res://output_data/results_2_10_11_44_33.SEARCH.translation", "res://output_data/results_2_10_11_44_33.SEARCH.translation", "res://output_data/results_2_10_11_44_33.SWITCH.translation", "res://output_data/results_2_10_11_44_33.EVADE_ON.translation", "res://output_data/results_2_10_11_44_33.ATTACK_ON.translation", "res://output_data/results_2_10_11_44_33.DETECT.translation", "res://output_data/results_2_10_11_44_33.CHASE.translation", "res://output_data/results_2_10_11_44_33.CHASE.translation", "res://output_data/results_2_10_11_44_33.CHASE.translation", "res://output_data/results_2_10_11_44_33.CHASE.translation", "res://output_data/results_2_10_11_44_33.SWITCH.translation", "res://output_data/results_2_10_11_44_33.SWITCH_TO.translation", "res://output_data/results_2_10_11_44_33.STARTING.translation", "res://output_data/results_2_10_11_44_33.STARTING.translation", "res://output_data/results_2_10_11_44_33.STARTING.translation", "res://output_data/results_2_10_11_44_33.STARTING.translation", "res://output_data/results_2_10_11_44_33.VIEW.translation", "res://output_data/results_2_10_11_44_33.VIEW.translation", "res://output_data/results_2_10_11_44_33.MASS.translation", "res://output_data/results_2_10_11_44_33.CHASE.translation"]
+
+source_file="res://output_data/results_2_10_11_44_33.csv"
+dest_files=["res://output_data/results_2_10_11_44_33.FITNESS.translation", "res://output_data/results_2_10_11_44_33.SAFE.translation", "res://output_data/results_2_10_11_44_33.SEARCH.translation", "res://output_data/results_2_10_11_44_33.SEARCH.translation", "res://output_data/results_2_10_11_44_33.SWITCH.translation", "res://output_data/results_2_10_11_44_33.EVADE_ON.translation", "res://output_data/results_2_10_11_44_33.ATTACK_ON.translation", "res://output_data/results_2_10_11_44_33.DETECT.translation", "res://output_data/results_2_10_11_44_33.CHASE.translation", "res://output_data/results_2_10_11_44_33.CHASE.translation", "res://output_data/results_2_10_11_44_33.CHASE.translation", "res://output_data/results_2_10_11_44_33.CHASE.translation", "res://output_data/results_2_10_11_44_33.SWITCH.translation", "res://output_data/results_2_10_11_44_33.SWITCH_TO.translation", "res://output_data/results_2_10_11_44_33.STARTING.translation", "res://output_data/results_2_10_11_44_33.STARTING.translation", "res://output_data/results_2_10_11_44_33.STARTING.translation", "res://output_data/results_2_10_11_44_33.STARTING.translation", "res://output_data/results_2_10_11_44_33.VIEW.translation", "res://output_data/results_2_10_11_44_33.VIEW.translation", "res://output_data/results_2_10_11_44_33.MASS.translation", "res://output_data/results_2_10_11_44_33.CHASE.translation"]
+
+[params]
+
+compress=true
+delimiter=0

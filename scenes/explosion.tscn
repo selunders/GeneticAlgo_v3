@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://iog4x5in2oa5"]
+
+[ext_resource type="Script" path="res://scenes/explosion.gd" id="1_g6gas"]
+
+[sub_resource type="Curve" id="Curve_f4mwj"]
+_data = [Vector2(0, 0), 0.0, 5.30606, 0, 0, Vector2(0.504854, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.89584, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_4tsjq"]
+curve = SubResource("Curve_f4mwj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v45bj"]
+lifetime_randomness = 0.2
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 30.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+angle_max = 360.0
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_4tsjq")
+color = Color(1, 0.54902, 0.176471, 1)
+hue_variation_min = -0.1
+hue_variation_max = 0.14
+
+[node name="Explosion" type="GPUParticles2D"]
+z_index = 1
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_v45bj")
+one_shot = true
+explosiveness = 0.75
+script = ExtResource("1_g6gas")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

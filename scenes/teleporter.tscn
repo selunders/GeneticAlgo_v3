@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5s8v1s4hmpst"]
+
+[sub_resource type="GDScript" id="GDScript_uvfwg"]
+script/source = "extends Node
+
+@onready var area1 = $Area2D
+@onready var area2 = $Area2D2
+
+@export_enum(\"X-Teleport\", \"Y-Teleport\") var teleport_direction:int
+@onready var x_distance = area1.position.x - area2.position.x
+@onready var y_distance = area1.position.y - area2.position.y
+
+func _on_area_2d_body_entered(body):
+	if(teleport_direction == 0):
+		body.position.x -= (x_distance - 50)
+	else:
+		body.position.y -= (y_distance - 50)
+
+
+func _on_area_2d_2_body_entered(body):
+	if(teleport_direction == 0):
+		body.position.x -= (x_distance - 50)
+	else:
+		body.position.y -= (y_distance - 50)
+"
+
+[node name="Teleporter" type="Node"]
+script = SubResource("GDScript_uvfwg")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Area2D2" type="Area2D" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="." method="_on_area_2d_2_body_entered"]

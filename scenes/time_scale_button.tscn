@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcmg0alceusrp"]
+
+[ext_resource type="Script" path="res://scenes/time_scale_button.gd" id="1_xmm3e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bd5b1"]
+bg_color = Color(0, 0.631373, 0.972549, 0.662745)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h0hc6"]
+bg_color = Color(0, 0.584314, 0.74902, 1)
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(100, 80)
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_bd5b1")
+theme_override_styles/hover = SubResource("StyleBoxFlat_h0hc6")
+text = "0.5x"
+script = ExtResource("1_xmm3e")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

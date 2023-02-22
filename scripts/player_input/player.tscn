@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0m074wcx1x3w"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_plna1"]
+[ext_resource type="PackedScene" uid="uid://dqmibi1e402nv" path="res://scenes/tagged_indicator.tscn" id="2_7jw6s"]
+[ext_resource type="SpriteFrames" uid="uid://b7exvv3rfbrl2" path="res://resources/robot_sprite_frames.tres" id="2_vu5fm"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cdbed"]
+radius = 3.0
+height = 12.0
+
+[node name="Player" type="RigidBody2D"]
+mass = 0.5
+gravity_scale = 0.0
+continuous_cd = 2
+max_contacts_reported = 1
+contact_monitor = true
+linear_damp = 1.2
+angular_damp = 0.2
+script = ExtResource("1_plna1")
+SPEED = 200.0
+ROTATIONAL_SPEED = 250.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_cdbed")
+
+[node name="Player_Controls" type="Node" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -5)
+sprite_frames = ExtResource("2_vu5fm")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="Tagged" parent="." instance=ExtResource("2_7jw6s")]
+visible = false
+z_index = -1
